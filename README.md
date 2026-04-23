@@ -33,18 +33,19 @@ CREATE DATABASE database_name;
 CREATE TABLE table_name (
     column1 datatype [constraints],
     column2 datatype [constraints],
-    ...
+    .
+    .
 );
 ```
 
 *Example:*
 
 ```sql
-CREATE TABLE Student (
+CREATE TABLE Students (
     StudentID INT PRIMARY KEY,
-    FirstName VARCHAR(50) NOT NULL,
-    LastName VARCHAR(50) NOT NULL,
-    Email VARCHAR(100) UNIQUE,
+    FirstName VARCHAR(10) NOT NULL,
+    LastName VARCHAR(10) NOT NULL,
+    Email VARCHAR(50) UNIQUE,
 );
 ```
 
@@ -53,7 +54,7 @@ CREATE TABLE Student (
 ### ALTER
 
 ```sql
-ALTER TABLE Customers
+ALTER TABLE Students
 ADD Age INT;
 ```
 
@@ -62,7 +63,7 @@ ADD Age INT;
 ### DROP
 
 ```sql
-DROP TABLE Customers;
+DROP TABLE Students;
 ```
 
 ---
@@ -72,7 +73,7 @@ DROP TABLE Customers;
 ### SELECT
 
 ```sql
-SELECT * FROM Customers;
+SELECT * FROM Students;
 ```
 
 ---
@@ -80,6 +81,38 @@ SELECT * FROM Customers;
 ### INSERT
 
 ```sql
-INSERT INTO Customers (FirstName, LastName)
+INSERT INTO Students (FirstName, LastName)
 VALUES ('John', 'Doe');
 ```
+
+### UPDATE
+
+```sql
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+```
+
+*Example:*
+
+```sql
+UPDATE Students
+SET Email = 'newemail@example.com'
+WHERE StudentID = 011;
+```
+
+### DELETE
+
+```sql
+DELETE FROM table_name
+WHERE condition;
+```
+
+*Example:*
+
+```sql
+DELETE FROM Students
+WHERE StudentID = 011;
+```
+
+---
