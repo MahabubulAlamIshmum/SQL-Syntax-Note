@@ -1,1 +1,1 @@
-# sql-syntax-Note
+# SQL-Syntax-Note
