@@ -1,5 +1,4 @@
 # SQL-Syntax-Note
-# SQL Syntax Cheat Sheet
 
 ## Table of Contents
 
