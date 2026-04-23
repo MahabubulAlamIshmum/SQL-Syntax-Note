@@ -12,8 +12,8 @@
 
    * [SELECT](#select)
    * [INSERT](#insert)
-   *  - [UPDATE](#update)
-   - [DELETE](#delete)
+   * [UPDATE](#update)
+   * [DELETE](#delete)
 
 ---
 
@@ -21,17 +21,30 @@
 
 ### CREATE
 
+**Create a Database**
+
 ```sql
 CREATE DATABASE database_name;
 ```
 
+**Create a Table**
+
 ```sql
-CREATE TABLE Customers (
-    CustomerID INT PRIMARY KEY,
+CREATE TABLE table_name (
+    column1 datatype [constraints],
+    column2 datatype [constraints],
+    ...
+);
+```
+
+*Example:*
+
+```sql
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY,
     FirstName VARCHAR(50) NOT NULL,
     LastName VARCHAR(50) NOT NULL,
     Email VARCHAR(100) UNIQUE,
-    CreatedDate DATE DEFAULT CURRENT_DATE
 );
 ```
 
