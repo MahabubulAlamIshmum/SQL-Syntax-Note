@@ -1,6 +1,6 @@
 # SQL-Syntax-Note
 
-## Table of Contents
+## Topics
 
 1. [Data Definition Language (DDL)](#1-data-definition-language-ddl)
 
