@@ -87,6 +87,20 @@ ALTER TABLE students
 MODIFY ID VARCHAR(100);
 ```
 
+**Change a Column**
+
+```sql
+ALTER TABLE table_name
+CHANGE old_name new_name datatype;
+```
+
+*Example:*
+
+```sql
+ALTER TABLE Students
+CHANGE department course VARCHAR(10);
+```
+
 **Drop a Column**
 
 ```sql
@@ -144,8 +158,8 @@ SELECT * FROM Students;
 ### INSERT
 
 ```sql
-INSERT INTO Students (FirstName, LastName)
-VALUES ('John', 'Doe');
+INSERT INTO students (id, name, age, marks)
+VALUES (0112331113, 'Mahabubul', 23, 90);
 ```
 
 ### UPDATE
