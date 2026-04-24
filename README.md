@@ -27,6 +27,12 @@
 CREATE DATABASE database_name;
 ```
 
+*Example:*
+
+```sql
+CREATE DATABASE University;
+```
+
 **Create a Table**
 
 ```sql
@@ -60,6 +66,13 @@ ALTER TABLE table_name
 ADD column_name datatype [constraints];
 ```
 
+*Example:*
+
+```sql
+ALTER TABLE students
+ADD department VARCHAR(100);
+```
+
 **Modify a Column**
 
 ```sql
@@ -67,11 +80,25 @@ ALTER TABLE table_name
 MODIFY COLUMN column_name new_datatype;
 ```
 
+*Example:*
+
+```sql
+ALTER TABLE students
+MODIFY ID VARCHAR(100);
+```
+
 **Drop a Column**
 
 ```sql
 ALTER TABLE table_name
 DROP COLUMN column_name;
+```
+
+*Example:*
+
+```sql
+ALTER TABLE students
+DROP COLUMN email;
 ```
 
 ---
@@ -84,10 +111,22 @@ DROP COLUMN column_name;
 DROP TABLE table_name;
 ```
 
+*Example:*
+
+```sql
+DROP TABLE Students;
+```
+
 **Drop a Database**
 
 ```sql
 DROP DATABASE database_name;
+```
+
+*Example:*
+
+```sql
+DROP DATABASE University;
 ```
 
 ---
