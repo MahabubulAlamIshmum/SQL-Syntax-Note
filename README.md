@@ -53,17 +53,41 @@ CREATE TABLE Students (
 
 ### ALTER
 
+**Add a Column**
+
 ```sql
-ALTER TABLE Students
-ADD Age INT;
+ALTER TABLE table_name
+ADD column_name datatype [constraints];
+```
+
+**Modify a Column**
+
+```sql
+ALTER TABLE table_name
+MODIFY COLUMN column_name new_datatype;
+```
+
+**Drop a Column**
+
+```sql
+ALTER TABLE table_name
+DROP COLUMN column_name;
 ```
 
 ---
 
 ### DROP
 
+**Drop a Table**
+
 ```sql
-DROP TABLE Students;
+DROP TABLE table_name;
+```
+
+**Drop a Database**
+
+```sql
+DROP DATABASE database_name;
 ```
 
 ---
