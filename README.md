@@ -157,6 +157,29 @@ SELECT * FROM Students;
 
 ### INSERT
 
+**Insert Into All Columns**
+
+```sql
+INSERT INTO table_name
+VALUES (value1, value2, ...);
+```
+
+*Example:*
+
+```sql
+INSERT INTO Students
+VALUES (0112331113, 'Mahabubul','Alam', 'malam2331113@cse.uiu.ac.bd');
+```
+
+**Insert Into Specific Columns**
+
+```sql
+INSERT INTO table_name (column1, column2, ...)
+VALUES (value1, value2, ...);
+```
+
+*Example:*
+
 ```sql
 INSERT INTO students (id, name, age, marks)
 VALUES (0112331113, 'Mahabubul', 23, 90);
@@ -175,7 +198,7 @@ WHERE condition;
 ```sql
 UPDATE Students
 SET Email = 'newemail@example.com'
-WHERE StudentID = 011;
+WHERE StudentID = 011......;
 ```
 
 ### DELETE
@@ -189,7 +212,7 @@ WHERE condition;
 
 ```sql
 DELETE FROM Students
-WHERE StudentID = 011;
+WHERE StudentID = 011......;
 ```
 
 ---
