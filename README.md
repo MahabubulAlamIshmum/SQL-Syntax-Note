@@ -223,7 +223,7 @@ WHERE StudentID = 011......;
 
 ---
 
-## 7. Functions
+## 3. Functions
 
 ### Aggregate Functions
 
@@ -275,7 +275,7 @@ SELECT DATE_ADD(CURDATE(), INTERVAL 7 DAY);
 
 ---
 
-## 8. Joins
+## 4. Joins
 
 ### INNER JOIN
 
