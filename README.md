@@ -26,7 +26,11 @@
     - [HAVING](#having)
     - [ORDER BY](#order-by)
     - [LIMIT / TOP / FETCH](#limit--top--fetch)
-
+6. [isnull](#6-isnull)
+7. [Distinct](#7-distinct)
+8. [Views](#8-views)
+9. [Stored Procedures and Functions](#9-stored-procedures-and-functions)
+10. [Indexes](#10-indexes)
 ---
 
 ## 1. Data Definition Language (DDL)
@@ -331,6 +335,8 @@ FROM table1
 FULL OUTER JOIN table2 ON table1.column = table2.column;
 ```
 
+---
+
 ## 5. Common Clauses
 
 ### WHERE
@@ -395,3 +401,49 @@ Limits the number of records returned.
   SELECT * FROM table_name
   FETCH FIRST number ROWS ONLY;
   ```
+
+---
+
+## 8. Views
+
+A virtual table based on the result set of an SQL statement.
+
+**Create a View**
+
+```sql
+CREATE VIEW view_name AS
+SELECT columns
+FROM table
+WHERE condition;
+```
+
+*Example:*
+
+```sql
+CREATE VIEW HighValueOrders AS
+SELECT OrderID, CustomerID, TotalAmount
+FROM Orders
+WHERE TotalAmount > 1000;
+```
+
+---
+
+## 10. Indexes
+
+Used to speed up the retrieval of data.
+
+**Create an Index**
+
+```sql
+CREATE INDEX index_name
+ON table_name (column1, column2, ...);
+```
+
+**Create a Unique Index**
+
+```sql
+CREATE UNIQUE INDEX index_name
+ON table_name (column);
+```
+
+---
