@@ -216,3 +216,106 @@ WHERE StudentID = 011......;
 ```
 
 ---
+
+## 7. Functions
+
+### Aggregate Functions
+
+- **COUNT()**: Counts the number of rows.
+- **SUM()**: Calculates the sum of a numeric column.
+- **AVG()**: Calculates the average value.
+- **MIN()**: Finds the minimum value.
+- **MAX()**: Finds the maximum value.
+
+*Example:*
+
+```sql
+SELECT COUNT(*) FROM Orders;
+
+SELECT CustomerID, SUM(TotalAmount) as TotalSpent
+FROM Orders
+GROUP BY CustomerID;
+```
+
+### String Functions
+
+- **UPPER(string)**: Converts to uppercase.
+- **LOWER(string)**: Converts to lowercase.
+- **SUBSTRING(string, start, length)**: Extracts a substring.
+- **TRIM(string)**: Removes whitespace.
+- **CONCAT(string1, string2, ...)**: Concatenates strings.
+
+*Example:*
+
+```sql
+SELECT UPPER(FirstName), LOWER(LastName)
+FROM Customers;
+```
+
+### Date and Time Functions
+
+- **NOW()**: Returns current date and time.
+- **CURDATE()**: Returns current date.
+- **DATE_ADD(date, INTERVAL value unit)**: Adds a time interval to a date.
+- **DATEDIFF(date1, date2)**: Returns the difference between two dates.
+
+*Example:*
+
+```sql
+SELECT NOW();
+
+SELECT DATE_ADD(CURDATE(), INTERVAL 7 DAY);
+```
+
+---
+
+## 8. Joins
+
+### INNER JOIN
+
+Returns records with matching values in both tables.
+
+```sql
+SELECT columns
+FROM table1
+INNER JOIN table2 ON table1.column = table2.column;
+```
+
+*Example:*
+
+```sql
+SELECT Orders.OrderID, Customers.FirstName, Customers.LastName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+```
+
+### LEFT JOIN
+
+Returns all records from the left table, and matched records from the right table.
+
+```sql
+SELECT columns
+FROM table1
+LEFT JOIN table2 ON table1.column = table2.column;
+```
+
+### RIGHT JOIN
+
+Returns all records from the right table, and matched records from the left table.
+
+```sql
+SELECT columns
+FROM table1
+RIGHT JOIN table2 ON table1.column = table2.column;
+```
+
+### FULL OUTER JOIN
+
+Returns all records when there is a match in either left or right table.
+
+```sql
+SELECT columns
+FROM table1
+FULL OUTER JOIN table2 ON table1.column = table2.column;
+```
+
