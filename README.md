@@ -20,6 +20,12 @@
    - [LEFT JOIN](#left-join)
    - [RIGHT JOIN](#right-join)
    - [FULL OUTER JOIN](#full-outer-join)
+5. [Common Clauses](#5-common-clauses)
+    - [WHERE](#where)
+    - [GROUP BY](#group-by)
+    - [HAVING](#having)
+    - [ORDER BY](#order-by)
+    - [LIMIT / TOP / FETCH](#limit--top--fetch)
 
 ---
 
@@ -325,3 +331,67 @@ FROM table1
 FULL OUTER JOIN table2 ON table1.column = table2.column;
 ```
 
+## 5. Common Clauses
+
+### WHERE
+
+Filters records that meet specific conditions.
+
+```sql
+SELECT * FROM table_name
+WHERE condition;
+```
+
+### GROUP BY
+
+Groups rows that have the same values in specified columns.
+
+```sql
+SELECT column1, AGG_FUNC(column2)
+FROM table_name
+GROUP BY column1;
+```
+
+### HAVING
+
+Filters groups according to specified conditions.
+
+```sql
+SELECT column1, AGG_FUNC(column2)
+FROM table_name
+GROUP BY column1
+HAVING condition;
+```
+
+### ORDER BY
+
+Sorts the result set.
+
+```sql
+SELECT * FROM table_name
+ORDER BY column1 [ASC|DESC], column2 [ASC|DESC];
+```
+
+### LIMIT / TOP / FETCH
+
+Limits the number of records returned.
+
+- **MySQL, PostgreSQL, SQLite**
+
+  ```sql
+  SELECT * FROM table_name
+  LIMIT number OFFSET offset;
+  ```
+
+- **SQL Server**
+
+  ```sql
+  SELECT TOP number * FROM table_name;
+  ```
+
+- **Oracle**
+
+  ```sql
+  SELECT * FROM table_name
+  FETCH FIRST number ROWS ONLY;
+  ```
