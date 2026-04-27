@@ -14,7 +14,15 @@
    * [INSERT](#insert)
    * [UPDATE](#update)
    * [DELETE](#delete)
-
+3. [Functions](#7-functions)
+   - [Aggregate Functions](#aggregate-functions)
+   - [String Functions](#string-functions)
+   - [Date and Time Functions](#date-and-time-functions)
+4. [Joins](#8-joins)
+   - [INNER JOIN](#inner-join)
+   - [LEFT JOIN](#left-join)
+   - [RIGHT JOIN](#right-join)
+   - [FULL OUTER JOIN](#full-outer-join)
 ---
 
 ## 1. Data Definition Language (DDL)
