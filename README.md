@@ -3,13 +3,10 @@
 ## Topics
 
 1. [Data Definition Language (DDL)](#1-data-definition-language-ddl)
-
    * [CREATE](#create)
    * [ALTER](#alter)
    * [DROP](#drop)
-
 2. [Data Manipulation Language (DML)](#2-data-manipulation-language-dml)
-
    * [SELECT](#select)
    * [INSERT](#insert)
    * [UPDATE](#update)
@@ -23,6 +20,7 @@
    - [LEFT JOIN](#left-join)
    - [RIGHT JOIN](#right-join)
    - [FULL OUTER JOIN](#full-outer-join)
+
 ---
 
 ## 1. Data Definition Language (DDL)
