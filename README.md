@@ -412,6 +412,25 @@ Limits the number of records returned.
 
 ---
 
+## 6. Isnull
+
+It is used to replace data of null values.
+
+**Use Isnull**
+
+```sql
+ISNULL(expression, replacement_value)
+```
+
+*Example:*
+
+```sql
+SELECT Name, ISNULL(Age, 0) AS Age
+FROM Students;
+```
+
+---
+
 ## 7. Distinct
 
 It is used to remove duplicate data and display unique values.
