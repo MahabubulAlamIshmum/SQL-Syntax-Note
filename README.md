@@ -165,8 +165,16 @@ DROP DATABASE University;
 
 ### SELECT
 
+**Select All (*) Columns form Table**
+
 ```sql
 SELECT * FROM Students;
+```
+
+**Select Specific Columns Form Table**
+
+```sql
+SELECT coloum_name,coloum_name FROM Students;
 ```
 
 ---
