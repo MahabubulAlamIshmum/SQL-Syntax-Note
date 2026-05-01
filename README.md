@@ -382,8 +382,17 @@ HAVING condition;
 Sorts the result set.
 
 ```sql
-SELECT * FROM table_name
-ORDER BY column1 [ASC|DESC], column2 [ASC|DESC];
+SELECT column_name
+FROM table_name
+ORDER BY column_name ASC|DESC;
+```
+
+*Example:*
+
+```sql
+SELECT Name, Age
+FROM Students
+ORDER BY Age ASC;
 ```
 
 ### LIMIT / TOP / FETCH
