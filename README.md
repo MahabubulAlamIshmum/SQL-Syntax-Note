@@ -26,7 +26,7 @@
     - [HAVING](#having)
     - [ORDER BY](#order-by)
     - [LIMIT / TOP / FETCH](#limit--top--fetch)
-6. [isnull](#6-isnull)
+6. [Isnull](#6-isnull)
 7. [Distinct](#7-distinct)
 8. [Views](#8-views)
 9. [Stored Procedures and Functions](#9-stored-procedures-and-functions)
@@ -409,6 +409,26 @@ Limits the number of records returned.
   SELECT * FROM table_name
   FETCH FIRST number ROWS ONLY;
   ```
+
+---
+
+## 7. Distinct
+
+It is used to remove duplicate data and display unique values.
+
+**Use Distinct**
+
+```sql
+SELECT DISTINCT column_name
+FROM table_name;
+```
+
+*Example:*
+
+```sql
+select distinct DeptName
+from Department;
+```
 
 ---
 
