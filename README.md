@@ -31,8 +31,8 @@
 7. [Distinct](#7-distinct)
 8. [Views](#8-views)
 9. [Stored Procedures and Functions](#9-stored-procedures-and-functions)
-10.[Indexes](#10-indexes)
-11.[Subqueries](#11-subqueries) 
+10. [Indexes](#10-indexes)
+11. [Subqueries](#11-subqueries) 
 ---
 
 ## 1. Data Definition Language (DDL)
