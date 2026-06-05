@@ -31,7 +31,8 @@
 7. [Distinct](#7-distinct)
 8. [Views](#8-views)
 9. [Stored Procedures and Functions](#9-stored-procedures-and-functions)
-10. [Indexes](#10-indexes)
+10.[Indexes](#10-indexes)
+11.[Subqueries](#11-subqueries) 
 ---
 
 ## 1. Data Definition Language (DDL)
@@ -519,6 +520,24 @@ ON table_name (column1, column2, ...);
 ```sql
 CREATE UNIQUE INDEX index_name
 ON table_name (column);
+```
+
+## 11. Subqueries
+
+A query nested inside another query.
+
+```sql
+SELECT column1_name
+FROM table1_name
+WHERE column2_name = (SELECT column_name FROM table2_name WHERE condition);
+```
+
+*Example:*
+
+```sql
+SELECT FirstName(Mahabubul), LastName(Alam)
+FROM Students
+WHERE StudentID IN (SELECT StudentID FROM Orders WHERE TotalAmount > 1000);
 ```
 
 ---
