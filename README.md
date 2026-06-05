@@ -537,7 +537,7 @@ WHERE column2_name = (SELECT column_name FROM table2_name WHERE condition);
 ```sql
 SELECT FirstName(Mahabubul), LastName(Alam)
 FROM Students
-WHERE StudentID IN (SELECT StudentID FROM Orders WHERE TotalAmount > 1000);
+WHERE StudentID IN (SELECT StudentID FROM Course WHERE CG > 3.50);
 ```
 
 ---
