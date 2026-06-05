@@ -20,6 +20,7 @@
    - [LEFT JOIN](#left-join)
    - [RIGHT JOIN](#right-join)
    - [FULL OUTER JOIN](#full-outer-join)
+   - [CROSS JOIN](#cross-join)
 5. [Common Clauses](#5-common-clauses)
     - [WHERE](#where)
     - [GROUP BY](#group-by)
@@ -341,6 +342,24 @@ Returns all records when there is a match in either left or right table.
 SELECT columns
 FROM table1
 FULL OUTER JOIN table2 ON table1.column = table2.column;
+```
+
+### CROSS JOIN
+
+Returns all possible combinations between rows of two tables.
+
+```sql
+SELECT column_list
+FROM table1
+CROSS JOIN table2;
+```
+
+*Example:*
+
+```sql
+SELECT color, size
+FROM Colors
+CROSS JOIN Sizes;
 ```
 
 ---
