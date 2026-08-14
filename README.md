@@ -53,8 +53,6 @@ CREATE DATABASE University;
 
 **Create a Table**
 
-NOTE :[ SELECT name FROM sys.tables; ] It is used to show all Table of Database.
-
 ```sql
 CREATE TABLE table_name (
     column1 datatype [constraints],
@@ -74,6 +72,7 @@ CREATE TABLE Students (
     Email VARCHAR(50) UNIQUE,
 );
 ```
+NOTE :[ SELECT name FROM sys.tables; ] It is used to show all Table of Database.
 
 ---
 
