@@ -11,28 +11,33 @@
    * [INSERT](#insert)
    * [UPDATE](#update)
    * [DELETE](#delete)
-3. [Functions](#3-functions)
+3. [Transaction Control Language (TCL)](#3-transaction-control-language-tcl)
+   - [BEGIN](#begin)
+   - [COMMIT](#commit)
+   - [ROLLBACK](#rollback)
+   - [SAVEPOINT](#savepoint)
+4. [Functions](#4-functions)
    - [Aggregate Functions](#aggregate-functions)
    - [String Functions](#string-functions)
    - [Date and Time Functions](#date-and-time-functions)
-4. [Joins](#4-joins)
+5. [Joins](#5-joins)
    - [INNER JOIN](#inner-join)
    - [LEFT JOIN](#left-join)
    - [RIGHT JOIN](#right-join)
    - [FULL OUTER JOIN](#full-outer-join)
    - [CROSS JOIN](#cross-join)
-5. [Common Clauses](#5-common-clauses)
+6. [Common Clauses](#6-common-clauses)
     - [WHERE](#where)
     - [GROUP BY](#group-by)
     - [HAVING](#having)
     - [ORDER BY](#order-by)
     - [LIMIT / TOP / FETCH](#limit--top--fetch)
-6. [Isnull](#6-isnull)
-7. [Distinct](#7-distinct)
-8. [Views](#8-views)
-9. [Stored Procedures and Functions](#9-stored-procedures-and-functions)
-10. [Indexes](#10-indexes)
-11. [Subqueries](#11-subqueries) 
+7. [Isnull](#7-isnull)
+8. [Distinct](#8-distinct)
+9. [Views](#9-views)
+10. [Stored Procedures and Functions](#10-stored-procedures-and-functions)
+11. [Indexes](#11-indexes)
+12. [Subqueries](#12-subqueries) 
 ---
 
 ## 1. Data Definition Language (DDL)
@@ -244,7 +249,40 @@ WHERE StudentID = 011......;
 
 ---
 
-## 3. Functions
+## 3. Transaction Control Language (TCL)
+
+### BEGIN
+```sql
+BEGIN;
+```
+
+### COMMIT
+
+```sql
+COMMIT;
+```
+
+### ROLLBACK
+
+```sql
+ROLLBACK;
+```
+
+### SAVEPOINT
+
+```sql
+SAVEPOINT savepoint_name;
+```
+
+**Rollback to Savepoint**
+
+```sql
+ROLLBACK TO SAVEPOINT savepoint_name;
+```
+
+---
+
+## 4. Functions
 
 ### Aggregate Functions
 
@@ -296,7 +334,7 @@ SELECT DATE_ADD(CURDATE(), INTERVAL 7 DAY);
 
 ---
 
-## 4. Joins
+## 5. Joins
 
 ### INNER JOIN
 
@@ -366,7 +404,7 @@ CROSS JOIN Sizes;
 
 ---
 
-## 5. Common Clauses
+## 6. Common Clauses
 
 ### WHERE
 
@@ -442,7 +480,7 @@ Limits the number of records returned.
 
 ---
 
-## 6. Isnull
+## 7. Isnull
 
 It is used to replace data of null values.
 
@@ -461,7 +499,7 @@ FROM Students;
 
 ---
 
-## 7. Distinct
+## 8. Distinct
 
 It is used to remove duplicate data and display unique values.
 
@@ -481,7 +519,7 @@ from Department;
 
 ---
 
-## 8. Views
+## 9. Views
 
 A virtual table based on the result set of an SQL statement.
 
@@ -505,7 +543,7 @@ WHERE TotalAmount > 1000;
 
 ---
 
-## 10. Indexes
+## 11. Indexes
 
 Used to speed up the retrieval of data.
 
@@ -523,7 +561,7 @@ CREATE UNIQUE INDEX index_name
 ON table_name (column);
 ```
 
-## 11. Subqueries
+## 12. Subqueries
 
 A query nested inside another query.
 
