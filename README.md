@@ -37,7 +37,8 @@
 9. [Views](#9-views)
 10. [Stored Procedures and Functions](#10-stored-procedures-and-functions)
 11. [Indexes](#11-indexes)
-12. [Subqueries](#12-subqueries) 
+12. [Subqueries](#12-subqueries)
+13. [BACKUP and RESTORE](#13-backup-and-restore)
 ---
 
 ## 1. Data Definition Language (DDL)
@@ -252,11 +253,16 @@ WHERE StudentID = 011......;
 ## 3. Transaction Control Language (TCL)
 
 ### BEGIN
+
+**Start a Transaction**
+
 ```sql
 BEGIN;
 ```
 
 ### COMMIT
+
+**Save Transaction Changes Permanently**
 
 ```sql
 COMMIT;
@@ -264,20 +270,143 @@ COMMIT;
 
 ### ROLLBACK
 
+**Undo All Transaction Changes**
+
 ```sql
 ROLLBACK;
 ```
 
 ### SAVEPOINT
 
+**Create a Savepoint in a Transaction**
+
 ```sql
 SAVEPOINT savepoint_name;
 ```
 
-**Rollback to Savepoint**
+### Rollback to Savepoint
+
+**Undo Changes Back to a Savepoint**
 
 ```sql
 ROLLBACK TO SAVEPOINT savepoint_name;
+```
+
+**Question:**
+
+```text
+1.Transfer 50 from Account 1 to Account 2 and permanently save the changes using a transaction.
+2.Transfer 50 from Account 1 to Account 2 using a transaction, but undo all changes using ROLLBACK TRANSACTION.
+3.Transfer 50 from Account 1 to Account 2 using a transaction with TRY-CATCH. If the transaction is successful,
+  commit the changes; otherwise, rollback the changes and display an appropriate message.
+```
+
+### 1. Simple Transaction
+
+**Start and Commit a Transaction**
+
+```sql
+BEGIN TRANSACTION;
+
+-- SQL statements
+
+COMMIT TRANSACTION;
+```
+
+*Example:*
+
+```sql
+BEGIN TRANSACTION;
+
+UPDATE Accounts
+SET Balance = Balance - 50
+WHERE AccountNo = 1;
+
+UPDATE Accounts
+SET Balance = Balance + 50
+WHERE AccountNo = 2;
+
+COMMIT TRANSACTION;
+```
+
+### 2. Transaction + Rollback
+
+**Rollback a Transaction**
+
+```sql
+BEGIN TRANSACTION;
+
+-- SQL statements
+
+ROLLBACK TRANSACTION;
+```
+
+*Example:*
+
+```sql
+BEGIN TRANSACTION;
+
+UPDATE Accounts
+SET Balance = Balance - 50
+WHERE AccountNo = 1;
+
+UPDATE Accounts
+SET Balance = Balance + 50
+WHERE AccountNo = 2;
+
+ROLLBACK TRANSACTION;
+```
+
+### 3. Transaction + TRY/CATCH
+
+**Start a Transaction with TRY-CATCH**
+
+```sql
+BEGIN TRANSACTION;
+
+BEGIN TRY
+
+    -- SQL statements
+
+    COMMIT TRANSACTION;
+    PRINT 'Transaction Successful';
+
+END TRY
+
+BEGIN CATCH
+
+    ROLLBACK TRANSACTION;
+    PRINT 'Transaction Failed. Changes Rolled Back';
+
+END CATCH;
+```
+
+*Example:*
+
+```sql
+BEGIN TRANSACTION;
+
+BEGIN TRY
+
+    UPDATE Accounts
+    SET Balance = Balance - 50
+    WHERE AccountNo = 1;    -- Your Account
+
+    UPDATE Accounts
+    SET Balance = Balance + 50
+    WHERE AccountNo = 2;    -- Friend Account
+
+    COMMIT TRANSACTION;
+    PRINT 'Transaction Successful';
+
+END TRY
+
+BEGIN CATCH
+
+    ROLLBACK TRANSACTION;
+    PRINT 'Transaction Failed. Changes Rolled Back';
+
+END CATCH;
 ```
 
 ---
@@ -543,6 +672,100 @@ WHERE TotalAmount > 1000;
 
 ---
 
+## 10. Stored Procedures and Functions
+
+Stored Procedure
+
+**Create a Stored Procedure**
+
+```sql
+CREATE PROCEDURE procedure_name
+    @parameter datatype
+AS
+BEGIN
+
+    -- SQL statements
+
+END;
+```
+
+*Example:*
+
+```sql
+CREATE PROCEDURE GetStudent
+    @StudentID INT
+AS
+BEGIN
+
+    SELECT *
+    FROM Students
+    WHERE StudentID = @StudentID;
+
+END;
+```
+
+**Execute a Stored Procedure**
+
+```sql
+EXEC procedure_name value;
+```
+
+*Example:*
+
+```sql
+EXEC GetStudent 0112331113;
+```
+
+User-Defined Function
+
+**Create a Function**
+
+```sql
+CREATE FUNCTION function_name
+(
+    @parameter datatype
+)
+RETURNS datatype
+AS
+BEGIN
+
+    RETURN value;
+
+END;
+```
+
+*Example:*
+
+```sql
+CREATE FUNCTION GetStudentID
+(
+    @StudentID INT
+)
+RETURNS INT
+AS
+BEGIN
+
+    RETURN @StudentID;
+
+END;
+```
+
+**Use a Function**
+
+```sql
+SELECT dbo.function_name(value);
+```
+
+*Example:*
+
+```sql
+SELECT dbo.GetStudentID(0112331113);
+```
+
+
+
+---
+
 ## 11. Indexes
 
 Used to speed up the retrieval of data.
@@ -577,6 +800,38 @@ WHERE column2_name = (SELECT column_name FROM table2_name WHERE condition);
 SELECT FirstName(Mahabubul), LastName(Alam)
 FROM Students
 WHERE StudentID IN (SELECT StudentID FROM Course WHERE CG > 3.50);
+```
+
+---
+
+## 13. BACKUP and RESTORE
+
+**Use BACKUP**
+
+```sql
+BACKUP DATABASE database_name
+TO DISK = 'file_path';
+```
+
+*Example:*
+
+```sql
+BACKUP DATABASE University
+TO DISK = 'C:\Backup\University.bak';
+```
+
+**Use Restore**
+
+```sql
+RESTORE DATABASE database_name
+FROM DISK = 'file_path';
+```
+
+*Example:*
+
+```sql
+RESTORE DATABASE University
+FROM DISK = 'C:\Backup\University.bak';
 ```
 
 ---
